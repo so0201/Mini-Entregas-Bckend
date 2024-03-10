@@ -1,77 +1,126 @@
-class ProductManager {
+class ProductsManager {
+  static productsList = [];
+  static productIdCounter = 1;
+
   constructor() {
     this.products = [];
   }
-  generateUniqueId() {
-    return '_' + Math.random().toString(36).substring(2, 11);
-  }
 
-  getProducts() {
-    return this.products;
-  }
-
-  addProduct(product) {
-    const existingProduct = this.products.find((p) => p.code === product.code);
-
-    if (existingProduct) {
-      throw new Error('El código del producto ya está en uso.');
-    }
-
-    const newProduct = {
-      id: this.generateUniqueId(),
-      ...product,
+  create(data) {
+    const productId = ProductsManager.productIdCounter++;
+    const product = {
+      id: productId,
+      title: data.title,
+      photo: data.photo,
+      category: data.category,
+      price: data.price,
+      stock: data.stock,
     };
 
-    this.products.push(newProduct);
-    return newProduct;
-  }
-
-  getProductById(productId) {
-    const product = this.products.find((p) => p.id === productId);
-
-    if (!product) {
-      throw new Error('Producto no encontrado.');
-    }
-
+    this.products.push(product);
     return product;
   }
+
+  read() {
+    return this.products;
+  }
 }
 
-const productManager = new ProductManager();
+class UsersManager {
+  static usersList = [];
+  static userIdCounter = 1;
 
-console.log(productManager.getProducts());
+  constructor() {
+    this.users = [];
+  }
 
-try {
-  const newProduct = {
-    title: 'producto prueba',
-    description: 'Este es un producto prueba',
-    price: 200,
-    thumbnail: 'Sin imagen',
-    code: 'abc123',
-    stock: 25,
-  };
+  create(data) {
+    const userId = UsersManager.userIdCounter++;
+    const user = {
+      id: userId,
+      photo: data.photo,
+      email: data.email,
+      password: data.password,
+      role: data.role,
+    };
 
-  productManager.addProduct(newProduct);
-  console.log(productManager.getProducts());
-} catch (error) {
-  console.error(error.message);
+    this.users.push(user);
+    return user;
+  }
+
+  read() {
+    return this.users;
+  }
 }
 
-try {
-  productManager.addProduct(newProduct);
-} catch (error) {
-  console.error(error.message);
-}
+const productsManager = new ProductsManager();
+const usersManager = new UsersManager();
 
-try {
-  const retrievedProduct = productManager.getProductById(productManager.getProducts()[0].id);
-  console.log(retrievedProduct);
-} catch (error) {
-  console.error(error.message);
-}
+const user1 = {
+  photo: 'https://miro.medium.com/v2/resize:fit:1200/1*OBZJJYHDPSWnsGxa3DLxIg.jpeg',
+  email: 'usuario1@gmail.com',
+  password: 'contraseña12345',
+  role: 'cliente',
+};
 
-try {
-  productManager.getProductById('productoNoExistente');
-} catch (error) {
-  console.error(error.message);
-}
+const user2 = {
+  photo: 'https://humanidades.com/wp-content/uploads/2016/04/gran-empresario-e1558299974907.jpg',
+  email: 'admin@gmail.com',
+  password: '12345contraseña',
+  role: 'admin',
+};
+
+const product1 = {
+  title: 'Product 1',
+  photo: 'product1.jpg',
+  category: 'Electronics',
+  price: 49.99,
+  stock: 100,
+};
+
+const product2 = {
+  title: 'Product 2',
+  photo: 'product2.jpg',
+  category: 'Clothing',
+  price: 29.99,
+  stock: 50,
+};
+
+const product3 = {
+  title: 'Product 3',
+  photo: 'product3.jpg',
+  category: 'Books',
+  price: 19.99,
+  stock: 75,
+};
+
+const product4 = {
+  title: 'Product 4',
+  photo: 'product4.jpg',
+  category: 'Home',
+  price: 39.99,
+  stock: 30,
+};
+
+const product5 = {
+  title: 'Product 5',
+  photo: 'product5.jpg',
+  category: 'Toys',
+  price: 14.99,
+  stock: 120,
+};
+
+usersManager.create(user1);
+usersManager.create(user2);
+
+productsManager.create(product1);
+productsManager.create(product2);
+productsManager.create(product3);
+productsManager.create(product4);
+productsManager.create(product5);
+
+console.log('Productos:');
+console.log(productsManager.read());
+
+console.log('\nUsuarios:');
+console.log(usersManager.read());
