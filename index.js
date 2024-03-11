@@ -71,43 +71,43 @@ const user2 = {
 };
 
 const product1 = {
-  title: 'Product 1',
-  photo: 'product1.jpg',
-  category: 'Electronics',
-  price: 49.99,
-  stock: 100,
+  title: 'Yerba Canarias',
+  photo: 'https://acdn.mitiendanube.com/stores/941/465/products/6a40b04b-cd4d-4155-9ccb-f36c301efa02_nube-39f5376672ce4c78f515968373570276-640-0.jpg',
+  category: 'Canarias',
+  price: 700,
+  stock: 4,
 };
 
 const product2 = {
-  title: 'Product 2',
-  photo: 'product2.jpg',
-  category: 'Clothing',
-  price: 29.99,
-  stock: 50,
+  title: 'Yerba Union',
+  photo: 'https://http2.mlstatic.com/D_NQ_NP_749234-MLA51482504099_092022-O.webp',
+  category: 'Union',
+  price: 850,
+  stock: 10,
 };
 
 const product3 = {
-  title: 'Product 3',
-  photo: 'product3.jpg',
-  category: 'Books',
-  price: 19.99,
-  stock: 75,
+  title: 'Yerba Rosamonte',
+  photo: 'https://acdn.mitiendanube.com/stores/805/409/products/02-render-rosamonte-tradicional-x-500g-final-1-fa104fbb23cf54e43917053428163617-480-0.jpg',
+  category: 'Rosamonte',
+  price: 900,
+  stock: 6,
 };
 
 const product4 = {
-  title: 'Product 4',
-  photo: 'product4.jpg',
-  category: 'Home',
-  price: 39.99,
-  stock: 30,
+  title: 'Yerba Playadito',
+  photo: 'https://jumboargentina.vtexassets.com/arquivos/ids/711224/Yerba-Mate-Playadito-Suave-X1kg-1-854539.jpg?v=637938633804770000',
+  category: 'Playadito',
+  price: 1050,
+  stock: 8,
 };
 
 const product5 = {
-  title: 'Product 5',
-  photo: 'product5.jpg',
-  category: 'Toys',
-  price: 14.99,
-  stock: 120,
+  title: 'Yerba Taragui(Azul)',
+  photo: 'https://modomarketar.vteximg.com.br/arquivos/ids/159030/Yerba-Taragui-4-Flex-Azul-Sin-Palo-X-1-Kg-1-5520.jpg?v=637873727431330000',
+  category: 'Taragui',
+  price: 1700,
+  stock: 8,
 };
 
 usersManager.create(user1);
